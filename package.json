@@ -1,0 +1,35 @@
+{
+  "dependencies": {
+    "@promoboxx/eslint-config": "^1.0.2",
+    "@types/node-fetch": "^2.5.4",
+    "apollo-datasource-rest": "^0.3.2",
+    "apollo-server": "^2.4.8",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.19.1",
+    "graphql": "^14.2.1",
+    "graphql-tools": "^4.0.6",
+    "query-string": "^6.9.0",
+    "typescript": "^3.7.4"
+  },
+  "name": "pbxx-graphql",
+  "version": "1.0.0",
+  "description": "Apollo GraphQL",
+  "main": "src/index.js",
+  "devDependencies": {
+    "@graphql-codegen/cli": "^1.10.0",
+    "@graphql-codegen/introspection": "1.10.0",
+    "@graphql-codegen/typescript": "1.10.0",
+    "@graphql-codegen/typescript-operations": "1.10.0",
+    "@graphql-codegen/typescript-react-apollo": "1.10.0",
+    "@graphql-codegen/typescript-resolvers": "^1.10.0"
+  },
+  "scripts": {
+    "lint": "eslint ./src",
+    "start": "tsc && node dist/src/index.js",
+    "build": "rm -rf dist/*; tsc --build --listEmittedFiles",
+    "codegen": "rm -rf generated/*; graphql-codegen --config codegen.yml"
+  },
+  "author": "Joe Leonard <joe.leonard@promoboxx.com>",
+  "license": "UNLICENSED"
+}

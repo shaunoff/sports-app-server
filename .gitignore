@@ -1,0 +1,16 @@
+node_modules
+public
+dist
+generated
+*.log
+coverage
+.wwp-cache
+*.pem
+.cache
+test-results
+.DS_Store
+src/.DS_Store
+.out
+lambda-build
+.terraform
+terraform.tfstate.d
