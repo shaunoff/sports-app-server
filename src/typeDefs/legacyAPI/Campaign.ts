@@ -1,17 +1,12 @@
 import { gql } from 'apollo-server'
 
-const campaign = gql`
+const Campaign = gql`
   type File {
     public_id: String
     resource_type: String
   }
 
   type Logo {
-    external_video_url: String
-    file: File
-  }
-
-  type DigitalAssets {
     external_video_url: String
     file: File
   }
@@ -82,114 +77,43 @@ const campaign = gql`
   }
 
   type Invitation {
-    campaign_id: Int
-    retailer_id: Int
     accepted_at: String
-    created_at: String
-    updated_at: String
-    id: ID!
-    communication_id: Int
-    deleted_at: String
-    uuid: String
-    status: String
+    campaign_id: Int
     communication_automation_id: String
+    communication_id: Int
+    created_at: String
     created_by_id: Int
-    updated_by_id: Int
+    deleted_at: String
+    id: ID!
     import_key: String
-    user_id: String
-    state: String
     opted_out: Boolean
+    retailer_id: Int
+    state: String
+    status: String
+    updated_at: String
+    updated_by_id: Int
+    user_id: String
+    uuid: String
   }
 
   type Invitations {
-    campaign_id: Int
-    retailer_id: Int
     accepted_at: String
-    created_at: String
-    updated_at: String
-    id: ID!
-    communication_id: Int
-    deleted_at: String
-    uuid: String
-    status: String
-    communication_automation_id: String
-    created_by_id: Int
-    updated_by_id: Int
-    import_key: String
-    user_id: String
-    state: String
-    opted_out: Boolean
-  }
-
-  type ShareData {
-    post_format: String
-    subject: String
-    body: String
-    title: String
-    description: String
-    link: String
-    share_url_type: String
-    custom_share_url_id: String
-    button_text: String
-  }
-
-  type ShareSettings {
-    id: ID!
-    share_type: String
-    responsive_share_image_url: String
-    landing_page_copy: String
-    name: String
-    share_data: ShareData
-  }
-
-  type Assets {
-    id: ID!
     campaign_id: Int
+    communication_automation_id: String
+    communication_id: Int
     created_at: String
-    updated_at: String
-    file_file_name: String
-    file_content_type: String
-    file_file_size: String
-    file_updated_at: String
-    category: String
-    brand_id: Int
-    name: String
-    description: String
     created_by_id: Int
-    updated_by_id: Int
     deleted_at: String
-    enabled: Boolean
-    width: String
-    height: String
-    thumbnail_url: String
-    medium_url: String
-    original_url: String
-    pinned: Boolean
-    file_extension: String
-    file_type: String
-    file_url: String
-    tag_list: [String]
-  }
-
-  type Brand {
     id: ID!
-    name: String
-    logo_url: String
-    show_logo: Boolean
-    header_background_color: String
-    header_foreground_color: String
-    support_email_address: String
-    slug: String
-    external_auth_login_url: String
-    default_enrollment_campaign_id: Int
-    lock_retailer_data: Boolean
-    campaign_alias: String
-    retailer_alias: String
-    custom_header_css: String
-    website: String
-    auto_share_facebook: Boolean
-    auto_share_twitter: Boolean
-    lock_user_creation: Boolean
+    import_key: String
+    opted_out: Boolean
+    retailer_id: Int
+    state: String
+    status: String
+    updated_at: String
+    updated_by_id: Int
+    user_id: String
+    uuid: String
   }
 
   type ShareSettingsCountPerShareType {
@@ -343,7 +267,7 @@ const campaign = gql`
     uuid: String
     fbpage_campaign_id: String
     logo: Logo
-    digital_assets: [DigitalAssets]
+    digital_assets: [DigitalAsset]
     allocation: Allocation
     spending_summary: SpendingSummary
     registration_keys: [RegistrationKeys]
@@ -352,8 +276,8 @@ const campaign = gql`
     invitation: [Invitation]
     invitations: [Invitations]
     bounties: [String]
-    share_settings: [ShareSettings]
-    assets: [Assets]
+    share_settings: [ShareSetting]
+    assets: [Asset]
     brand: Brand
     share_settings_count_per_share_type: [ShareSettingsCountPerShareType]
     kpi: Kpi
@@ -367,31 +291,6 @@ const campaign = gql`
     configured_channels: [String]
     features: [String]
   }
-
-  input CampaignsParams {
-    per_page: Int
-    offset: Int
-    fields: [String]
-  }
-
-  input CampaignSearchParams {
-    per_page: Int
-    offset: Int
-    search: String
-  }
-
-  type Query {
-    getCampaignSearch(
-      resourceType: String!
-      resourceId: String!
-      params: CampaignSearchParams
-    ): [Campaign]
-    getCampaigns(
-      resourceType: String!
-      resourceId: String!
-      params: CampaignsParams
-    ): [Campaign]
-  }
 `
 
-export default campaign
+export default Campaign

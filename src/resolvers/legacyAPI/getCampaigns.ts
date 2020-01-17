@@ -1,5 +1,5 @@
-import { QueryResolvers } from '../../generated/graphql'
-import getParamsForFields from '../lib/getParamsForFields'
+import { QueryResolvers } from '../../../generated/graphql'
+import getParamsForFields from '../../lib/getParamsForFields'
 
 export const getCampaigns: QueryResolvers = {
   getCampaigns: (

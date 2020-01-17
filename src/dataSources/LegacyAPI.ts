@@ -10,7 +10,9 @@ class LegacyAPI extends RESTDataSource {
   }
 
   willSendRequest(request: RequestOptions) {
-    // console.log(request)
+    if (this.context.token) {
+      request.headers.set('Authorization', this.context.token)
+    }
   }
 
   async getCampaignSearch(
@@ -18,7 +20,7 @@ class LegacyAPI extends RESTDataSource {
     resourceId: String,
     params: CampaignSearchParams,
   ) {
-    return await this.get(
+    return this.get(
       `/v2/${resourceType}/${resourceId}/campaigns/search${formatQueryParams(
         params,
       )}`,
@@ -30,10 +32,9 @@ class LegacyAPI extends RESTDataSource {
     resourceId: String,
     params: CampaignsParams,
   ) {
-    const response = await this.get(
+    return this.get(
       `/v2/${resourceType}/${resourceId}/campaigns${formatQueryParams(params)}`,
     )
-    return response
   }
 }
 

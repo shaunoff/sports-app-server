@@ -12,10 +12,10 @@
     "query-string": "^6.9.0",
     "typescript": "^3.7.4"
   },
-  "name": "pbxx-graphql",
+  "name": "graphql-server",
   "version": "1.0.0",
-  "description": "Apollo GraphQL",
-  "main": "src/index.js",
+  "description": "Apollo GraphQL server",
+  "main": "dist/src/index.js",
   "devDependencies": {
     "@graphql-codegen/cli": "^1.10.0",
     "@graphql-codegen/introspection": "1.10.0",
