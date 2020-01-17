@@ -1,6 +1,9 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest'
-import { CampaignSearchParams, CampaignsParams } from '../../generated/graphql'
-import formatQueryParams from '../lib/formatQueryParams'
+import {
+  CampaignSearchParams,
+  CampaignsParams,
+} from '../../../generated/graphql'
+import formatQueryParams from '../../lib/formatQueryParams'
 
 //Campaigns
 class LegacyAPI extends RESTDataSource {

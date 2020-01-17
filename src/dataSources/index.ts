@@ -1,5 +1,5 @@
-import LegacyAPI from './LegacyAPI'
-import WalletService from './WalletService'
+import LegacyAPI from './legacyAPI'
+import WalletService from './walletService'
 
 export default () => ({
   legacyAPI: new LegacyAPI(),

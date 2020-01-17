@@ -1,6 +1,6 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest'
-import { WalletsParams, AddFundsParams } from '../../generated/graphql'
-import formatQueryParams from '../lib/formatQueryParams'
+import { WalletsParams, AddFundsParams } from '../../../generated/graphql'
+import formatQueryParams from '../../lib/formatQueryParams'
 
 //Campaigns
 class WalletService extends RESTDataSource {
