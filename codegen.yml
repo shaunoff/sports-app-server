@@ -2,9 +2,6 @@ overwrite: true
 schema: 'src/typeDefs/**/*.ts'
 generates:
   generated/graphql.ts:
-    hooks:
-      afterAllFileWrite:
-        - nodemon
     plugins:
       - 'typescript'
       - 'typescript-resolvers'
