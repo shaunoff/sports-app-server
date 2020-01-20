@@ -1,5 +1,15 @@
 import { gql } from 'apollo-server'
 
+//Template Import
+import Template from './template/Template'
+
+//api-football
+import League from './apiFootball/League'
+
+//Template Import
+//import Competition from './footballData/Competition'
+//import Team from './footballData/Team'
+
 // Legacy API Types
 import Campaign from './legacyAPI/Campaign'
 import DigitalAsset from './legacyAPI/DigitalAsset'
@@ -27,6 +37,10 @@ const Root = gql`
 
 export default [
   Root,
+  Template,
+  League,
+  //Competition,
+  //Team,
   Campaign,
   DigitalAsset,
   Asset,
