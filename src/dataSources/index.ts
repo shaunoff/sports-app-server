@@ -1,7 +1,7 @@
-import LegacyAPI from './legacyAPI'
-import WalletService from './walletService'
+import ApiFootball from './apiFootball'
+import FootballData from './footballData'
 
 export default () => ({
-  legacyAPI: new LegacyAPI(),
-  walletService: new WalletService(),
+  apiFootball: new ApiFootball(),
+  footballData: new FootballData(),
 })

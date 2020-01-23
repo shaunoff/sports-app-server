@@ -1,18 +1,15 @@
 import { gql } from 'apollo-server'
 
-// Legacy API Types
-import Campaign from './legacyAPI/Campaign'
-import DigitalAsset from './legacyAPI/DigitalAsset'
-import Asset from './legacyAPI/Asset'
-import Brand from './legacyAPI/Brand'
-import ShareSetting from './legacyAPI/ShareSetting'
-import CampaignQuery from './legacyAPI/CampaignQuery'
+//api-football
+//import League from './apiFootball/League'
 
-// Wallet Service Types
-import Wallet from './walletService/Wallet'
-import Ledger from './walletService/Ledger'
-import WalletQuery from './walletService/WalletQuery'
-import WalletMutation from './walletService/WalletMutation'
+// Internal Types
+import User from './internal/user'
+import Task from './internal/task'
+
+//Template Import
+//import Competition from './footballData/Competition'
+//import Team from './footballData/Team'
 
 // Root
 const Root = gql`
@@ -25,16 +22,4 @@ const Root = gql`
   }
 `
 
-export default [
-  Root,
-  Campaign,
-  DigitalAsset,
-  Asset,
-  Brand,
-  ShareSetting,
-  CampaignQuery,
-  Wallet,
-  Ledger,
-  WalletQuery,
-  WalletMutation,
-]
+export default [Root, User, Task]

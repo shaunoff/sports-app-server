@@ -2,12 +2,11 @@ overwrite: true
 schema: 'src/typeDefs/**/*.ts'
 generates:
   generated/graphql.ts:
-    hooks:
-      afterAllFileWrite:
-        - nodemon
     plugins:
       - 'typescript'
       - 'typescript-resolvers'
+    config:
+      useIndexSignature: true
   generated/graphql.schema.json:
     plugins:
       - 'introspection'

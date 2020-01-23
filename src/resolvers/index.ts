@@ -1,21 +1,23 @@
-import { getCampaignSearch } from './legacyAPI/getCampaignSearch'
-import { getCampaigns } from './legacyAPI/getCampaigns'
-import { getWallets } from './walletService/getWallets'
-import { addFunds } from './walletService/addFunds'
+//Template
+import { Resolvers } from '../../generated/graphql'
 
-const Query: any = {
-  ...getCampaignSearch,
-  ...getCampaigns,
-  ...getWallets,
+import { Query as UserQuery, User } from './internal/users'
+import { Query as TaskQuery, Task } from './internal/tasks'
+
+const Query = {
+  ...UserQuery,
+  ...TaskQuery,
 }
 
 const Mutation: any = {
-  ...addFunds,
+  //...addFunds,
 }
 
-const resolvers = {
+const resolvers: Resolvers = {
   Query,
   Mutation,
+  User,
+  Task,
 }
 
 export default resolvers
