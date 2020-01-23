@@ -1,32 +1,23 @@
 //Template
-import { getTemplates } from './template/getTemplates'
-// import { getCompetitions } from './footballData/getCompetitions'
-// import { getCompetition } from './footballData/getCompetition'
-//import { getTeams } from './footballData/getTeams'
-import { getCampaignSearch } from './legacyAPI/getCampaignSearch'
-import { getCampaigns } from './legacyAPI/getCampaigns'
-import { getWallets } from './walletService/getWallets'
-import { addFunds } from './walletService/addFunds'
-import { getLeague } from './apiFootball/getLeague'
+import { Resolvers } from '../../generated/graphql'
 
-const Query: any = {
-  ...getLeague,
-  ...getTemplates,
-  //...getCompetition,
-  //...getCompetitions,
-  //...getTeams,
-  ...getCampaignSearch,
-  ...getCampaigns,
-  ...getWallets,
+import { Query as UserQuery, User } from './internal/users'
+import { Query as TaskQuery, Task } from './internal/tasks'
+
+const Query = {
+  ...UserQuery,
+  ...TaskQuery,
 }
 
 const Mutation: any = {
-  ...addFunds,
+  //...addFunds,
 }
 
-const resolvers = {
+const resolvers: Resolvers = {
   Query,
   Mutation,
+  User,
+  Task,
 }
 
 export default resolvers
