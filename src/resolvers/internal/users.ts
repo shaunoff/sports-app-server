@@ -1,13 +1,22 @@
-import { QueryResolvers, UserResolvers } from '../../../generated/graphql'
+import {
+  QueryResolvers,
+  MutationResolvers,
+  UserResolvers,
+} from '../../../generated/graphql'
 import { users, tasks } from '../../constants'
 
 export const Query: QueryResolvers = {
-  getUsers: () => {
-    return users
+  getUsers: (_, __, { dataSources }) => {
+    return dataSources.internal.getUsers()
   },
-  getUser: (_, { id }) => {
-    const user = users.find((user) => user.id === id)
-    return user || users[0]
+  getUser: (_, { id }, { dataSources }) => {
+    return dataSources.internal.getUser(id)
+  },
+}
+
+export const Mutation: MutationResolvers = {
+  addUser: (_, { input }, { dataSources }) => {
+    return dataSources.internal.addUser(input)
   },
 }
 

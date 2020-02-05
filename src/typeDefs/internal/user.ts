@@ -3,12 +3,13 @@ import { gql } from 'apollo-server'
 const User = gql`
   extend type Query {
     getUsers: [User]
-    getUser(id: String): User
+    getUser(id: ID!): User!
   }
-  #   extend type Mutation {
-  #     signup(input: signupInput): User
-  #     login(input: loginInput): Token
-  #   }
+
+  extend type Mutation {
+    addUser(input: signupInput): User
+    # login(input: loginInput): Token
+  }
 
   #   input loginInput {
   #     email: String!
@@ -19,19 +20,16 @@ const User = gql`
   #     token: String!
   #   }
 
-  #   input signupInput {
-  #     name: String!
-  #     email: String!
-  #     password: String!
-  #   }
+  input signupInput {
+    name: String!
+    email: String!
+  }
 
   type User {
-    id: String!
+    id: ID!
     name: String!
     email: String!
     tasks: [Task]
-    # createdAt: Date!
-    # updatedAt: Date!
   }
 
   #   extend type Subscription {
